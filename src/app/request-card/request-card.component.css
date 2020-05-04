@@ -1,0 +1,15 @@
+.cards {
+  top: 15%;
+  margin-left: 20px;
+  background-color: #343c4c;
+  color: white;
+}
+
+mat-card-subtitle {
+  color: #878d95;
+}
+
+mat-grid-tile {
+  font-size: 20px;
+  text-align: left;
+}

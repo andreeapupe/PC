@@ -1,0 +1,21 @@
+<mat-card *ngFor="let request of arrCertifications">
+  <mat-card class="cards">
+    <mat-card-title>
+      <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>{{ request.certificationTitle }}</mat-grid-tile>
+        <mat-grid-tile
+          ><mat-card [style.backgroundColor]="'aquamarine'">{{
+            request.status
+          }}</mat-card></mat-grid-tile
+        >
+      </mat-grid-list>
+    </mat-card-title>
+    <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
+    <hr />
+    <mat-card-content>
+      <p>Name: {{ request.userName }}</p>
+      <p>Quarter: Q{{ request.quarter }}</p>
+      <p>Cost: {{ request.price }}$</p>
+    </mat-card-content>
+  </mat-card>
+</mat-card>

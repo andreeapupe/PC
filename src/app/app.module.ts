@@ -20,16 +20,16 @@ import { MatGridListModule } from '@angular/material/grid-list'
 
 import 'hammerjs'
 import { RegisterUserComponent } from './register-user/register-user.component'
-import { SearchBarComponent } from './search-bar/search-bar.component'
 import { CertBoxComponent } from './cert-box/cert-box.component'
 import { HttpClientModule } from '@angular/common/http'
+import { RequestCardComponent } from './request-card/request-card.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
-    SearchBarComponent,
     CertBoxComponent,
+    RequestCardComponent,
   ],
   imports: [
     BrowserModule,
