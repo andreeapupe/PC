@@ -1,13 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
- 
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
 
-body { 
-  padding: 0; 
-  margin: 0; 
-  font-family: Roboto, sans-serif; 
-  
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
 }
 
 .example-card {

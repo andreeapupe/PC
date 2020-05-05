@@ -1,5 +1,5 @@
 <div class="login-page">
-  <mat-card class="mat-elevation-z12">
+  <mat-card>
     <mat-card-title>Cert-Master</mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
       <mat-tab label="Log In">
@@ -37,19 +37,14 @@
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
             <mat-checkbox color="primary">Remember Me!</mat-checkbox>
-            <button
-              class="bonk"
-              mat-raised-button
-              color="primary"
-              class="login-button"
-            >
+            <button mat-raised-button color="primary" class="login-button">
               Log In
             </button>
           </form>
         </mat-card-content>
       </mat-tab>
 
-      <!-- SIGN UP -->
+      <!------------------ SIGN UP ------------------------>
       <mat-tab label="Sign Up">
         <mat-card-content>
           <form>
@@ -123,5 +118,28 @@
         </mat-card-content>
       </mat-tab>
     </mat-tab-group>
+
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <button
+          mat-raised-button
+          color="primary"
+          class="login-button"
+          [routerLink]="['/dashboard-user']"
+        >
+          User
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button
+          mat-raised-button
+          color="warn"
+          class="login-button"
+          [routerLink]="['/dashboard-admin']"
+        >
+          Admin
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-card>
 </div>

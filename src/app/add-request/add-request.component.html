@@ -1,0 +1,41 @@
+<form>
+  <br />
+  <h4>Choose a certification</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Choose Certification</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let request of Requests"
+        value="request.certificationTitle"
+      >
+        {{ request.certificationTitle }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br />
+  <mat-divider></mat-divider>
+  <h4>Choose a quarter</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>
+      <mat-icon matSuffix>watch_later</mat-icon>
+      Choose a quarter
+    </mat-label>
+    <mat-select>
+      <mat-option value="Q1">Q1</mat-option>
+      <mat-option value="Q2">Q2</mat-option>
+      <mat-option value="Q3">Q3</mat-option>
+      <mat-option value="Q4">Q4</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+  <h4>Business Justification</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Business Justification</mat-label>
+    <input matInput placeholder="Business Justification" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="getResponse()">
+    Submit
+  </button>
+</form>

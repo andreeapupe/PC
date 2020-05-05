@@ -1,0 +1,12 @@
+<mat-toolbar color="primary"
+  ><mat-icon>blur_on</mat-icon>Cert-Master
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>face</mat-icon> Hi, John!
+  </button>
+  <mat-menu #menu="matMenu" yPosition="below">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item [routerLink]="['/authenticate']">Logout</button>
+  </mat-menu>
+</mat-toolbar>
