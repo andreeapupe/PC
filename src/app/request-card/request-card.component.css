@@ -13,3 +13,8 @@ mat-grid-tile {
   font-size: 20px;
   text-align: left;
 }
+
+.status {
+  background-color: aquamarine;
+  color: black;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { ReqModel } from '../req-model'
-import { HttpService } from '../http.service'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { ReqModel } from '../../req-model'
+import { HttpService } from '../../http.service'
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-add-request',

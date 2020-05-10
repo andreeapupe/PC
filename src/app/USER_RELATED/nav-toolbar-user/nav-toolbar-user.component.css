@@ -1,0 +1,19 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-card {
+  width: 20px;
+  height: 20px;
+}
+
+.icon {
+  font-size: 35px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.a {
+  margin-left: 10px;
+  vertical-align: middle;
+}

@@ -24,12 +24,13 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatDividerModule } from '@angular/material/divider'
 
 import 'hammerjs'
-import { CertBoxComponent } from './cert-box/cert-box.component'
+import { CertBoxComponent } from './USER_RELATED/cert-box/cert-box.component'
 import { HttpClientModule } from '@angular/common/http'
 import { RequestCardComponent } from './request-card/request-card.component'
-import { AddRequestComponent } from './add-request/add-request.component'
-import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component'
-import { SearchBarComponent } from './search-bar/search-bar.component'
+import { AddRequestComponent } from './USER_RELATED/add-request/add-request.component'
+import { NavToolbarComponent } from './ADMIN_RELATED/nav-toolbar/nav-toolbar.component'
+import { SearchBarComponent } from './ADMIN_RELATED/search-bar/search-bar.component';
+import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-toolbar-user.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component'
     NavToolbarComponent,
     RoutingComponents,
     SearchBarComponent,
+    NavToolbarUserComponent,
   ],
   entryComponents: [AddRequestComponent],
   imports: [

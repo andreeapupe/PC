@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <mat-icon class="icon">blur_on</mat-icon><a class="a">Cert-Master - USER</a>
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="['/dashboard-user']">User</button>
+    <button mat-menu-item [routerLink]="['/dashboard-admin']">Admin</button>
+    <button mat-menu-item [routerLink]="['/authenticate']">Logout</button>
+  </mat-menu>
+</mat-toolbar>

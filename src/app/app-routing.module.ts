@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { DashboardUserComponent } from './dashboard-user/dashboard-user.component'
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component'
-import { AuthenticationComponent } from './authentication/authentication.component'
+import { DashboardUserComponent } from './USER_RELATED/dashboard-user/dashboard-user.component'
+import { DashboardAdminComponent } from './ADMIN_RELATED/dashboard-admin/dashboard-admin.component'
+import { AuthenticationComponent } from './LOGIN-SIGNUP/authentication/authentication.component'
 
 const routes: Routes = [
   {
