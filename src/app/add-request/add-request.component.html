@@ -1,41 +1,35 @@
-<form>
+<form [formGroup]="requestForm">
+  <h2>Request a certification</h2>
+  <mat-divider></mat-divider>
   <br />
   <h4>Choose a certification</h4>
   <mat-form-field appearance="outline">
     <mat-label>Choose Certification</mat-label>
-    <mat-select>
-      <mat-option
-        *ngFor="let request of Requests"
-        value="request.certificationTitle"
-      >
+    <mat-select formControlName="title">
+      <mat-option *ngFor="let request of requests" [value]="request.id">
         {{ request.certificationTitle }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <br />
-  <mat-divider></mat-divider>
-  <h4>Choose a quarter</h4>
-  <mat-form-field appearance="outline">
-    <mat-label>
-      <mat-icon matSuffix>watch_later</mat-icon>
-      Choose a quarter
-    </mat-label>
-    <mat-select>
-      <mat-option value="Q1">Q1</mat-option>
-      <mat-option value="Q2">Q2</mat-option>
-      <mat-option value="Q3">Q3</mat-option>
-      <mat-option value="Q4">Q4</mat-option>
-    </mat-select>
-  </mat-form-field>
 
   <mat-divider></mat-divider>
   <h4>Business Justification</h4>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="business-justification">
     <mat-label>Business Justification</mat-label>
-    <input matInput placeholder="Business Justification" />
+    <textarea
+      matInput
+      placeholder="Ex. Employers looking to hire want you to have knowledge, experience and certifications in your areas of expertise."
+      formControlName="justification"
+    ></textarea>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="getResponse()">
+  <button
+    mat-raised-button
+    color="primary"
+    class="submit-button"
+    (click)="submitRequest()"
+  >
     Submit
   </button>
 </form>

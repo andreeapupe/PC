@@ -1,0 +1,16 @@
+.cards {
+  height: 280px;
+  background-color: darkgray;
+  color: black;
+}
+
+.status {
+  background-color: darkseagreen;
+  color: black;
+  width: 100px;
+  text-align: center;
+}
+
+.space {
+  flex: 1 1 auto;
+}

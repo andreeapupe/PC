@@ -5,3 +5,14 @@ form {
 mat-form-field {
   width: 500px;
 }
+
+.business-justification {
+  width: 100%;
+}
+
+.submit-button {
+  margin-top: 20px;
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+}

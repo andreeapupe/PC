@@ -13,6 +13,10 @@ export class DashboardUserComponent implements OnInit {
   ngOnInit(): void {}
 
   openDialog() {
-    this.dialog.open(AddRequestComponent)
+    const dialogRef = this.dialog.open(AddRequestComponent)
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed')
+    })
   }
 }
