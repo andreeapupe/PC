@@ -14,9 +14,7 @@ export class DashboardAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.http
-      .get(
-        'https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests?quarter=1&status=Pending'
-      )
+      .get('https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests')
       .subscribe(
         (data) => {
           this.allCertifications = data as string[]

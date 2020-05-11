@@ -1,0 +1,15 @@
+<app-nav-toolbar-user> </app-nav-toolbar-user>
+
+<mat-card class="back">
+  <div class="margin"></div>
+  <h2>Available certifications</h2>
+  <mat-card class="cards" *ngFor="let request of requests">
+    <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
+    <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
+    <hr />
+    <mat-card-content>
+      <p>Available quarters: Q{{ request.quarter }}</p>
+      <p>Cost: {{ request.price }}$</p>
+    </mat-card-content>
+  </mat-card>
+</mat-card>

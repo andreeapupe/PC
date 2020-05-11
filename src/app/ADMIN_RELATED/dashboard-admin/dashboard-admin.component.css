@@ -1,16 +1,52 @@
 .cards {
   height: 280px;
-  background-color: darkgray;
-  color: black;
+  background-color: rgb(30, 30, 30);
+  color: white;
 }
 
 .status {
-  background-color: darkseagreen;
-  color: black;
-  width: 100px;
+  color: whitesmoke;
+  width: 70px;
+  height: 10px;
   text-align: center;
+  vertical-align: middle;
+  line-height: 10px;
 }
 
 .space {
   flex: 1 1 auto;
+}
+
+.approve-button {
+  background-color: rgb(39, 174, 96, 0.8);
+}
+
+.reject-button {
+  background-color: rgb(192, 57, 43, 0.8);
+  margin-left: 4px;
+}
+
+.edit-button {
+  background-color: rgb(52, 73, 94);
+}
+
+.approved {
+  background-color: green;
+}
+
+.rejected {
+  background-color: red;
+}
+
+.pending {
+  background-color: yellow;
+  color: black;
+}
+
+.container {
+  display: flex;
+}
+
+.fill {
+  flex: 1 1;
 }

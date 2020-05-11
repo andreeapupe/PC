@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { DashboardUserComponent } from './USER_RELATED/dashboard-user/dashboard-user.component'
 import { DashboardAdminComponent } from './ADMIN_RELATED/dashboard-admin/dashboard-admin.component'
 import { AuthenticationComponent } from './LOGIN-SIGNUP/authentication/authentication.component'
+import { AllCertificationsComponent } from './USER_RELATED/all-certifications/all-certifications.component'
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'authenticate',
     component: AuthenticationComponent,
   },
+  {
+    path: 'all-certifications',
+    component: AllCertificationsComponent,
+  },
 ]
 
 @NgModule({
@@ -35,4 +40,5 @@ export const RoutingComponents = [
   DashboardUserComponent,
   DashboardAdminComponent,
   AuthenticationComponent,
+  AllCertificationsComponent,
 ]

@@ -1,17 +1,47 @@
 <app-nav-toolbar></app-nav-toolbar>
 
-<app-search-bar></app-search-bar>
-
 <mat-card *ngFor="let request of allCertifications">
   <mat-card class="cards">
-    <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
-    <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
+    <div class="container">
+      <a>
+        <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
+        <mat-card-subtitle> {{ request.categoryName }}</mat-card-subtitle>
+      </a>
+      <div class="fill"></div>
+      <mat-card
+        class="status"
+        [ngClass]="{
+          approved: request.status == 'Approved',
+          rejected: request.status == 'Rejected',
+          pending: request.status == 'Pending'
+        }"
+        >{{ request.status }}</mat-card
+      >
+    </div>
+
     <hr />
     <mat-card-content>
       <p>Name: {{ request.userName }}</p>
       <p>Quarter: Q{{ request.quarter }}</p>
       <p>Cost: {{ request.price }}$</p>
-      <mat-card class="status">{{ request.status }}</mat-card>
+      <p>Business Justification: {{ request.businessJustification }}</p>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-grid-list cols="3">
+        <button mat-stroked-button class="approve-button">
+          <mat-icon>done</mat-icon>Approve
+        </button>
+
+        <button mat-stroked-button class="reject-button">
+          <mat-icon>highlight_off</mat-icon>Reject
+        </button>
+
+        <div fxFlex></div>
+        <button mat-stroked-button class="edit-button">
+          Edit<mat-icon>edit</mat-icon>
+        </button>
+      </mat-grid-list>
     </mat-card-content>
   </mat-card>
 </mat-card>

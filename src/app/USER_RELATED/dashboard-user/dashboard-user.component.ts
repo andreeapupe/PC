@@ -8,6 +8,7 @@ import { AddRequestComponent } from '../add-request/add-request.component'
   styleUrls: ['./dashboard-user.component.css'],
 })
 export class DashboardUserComponent implements OnInit {
+  showFiller = false
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}

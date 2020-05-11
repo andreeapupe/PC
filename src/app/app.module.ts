@@ -29,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { RequestCardComponent } from './request-card/request-card.component'
 import { AddRequestComponent } from './USER_RELATED/add-request/add-request.component'
 import { NavToolbarComponent } from './ADMIN_RELATED/nav-toolbar/nav-toolbar.component'
-import { SearchBarComponent } from './ADMIN_RELATED/search-bar/search-bar.component';
 import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-toolbar-user.component'
 
 @NgModule({
@@ -40,7 +39,6 @@ import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-too
     AddRequestComponent,
     NavToolbarComponent,
     RoutingComponents,
-    SearchBarComponent,
     NavToolbarUserComponent,
   ],
   entryComponents: [AddRequestComponent],

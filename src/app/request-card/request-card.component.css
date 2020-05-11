@@ -1,8 +1,10 @@
 .cards {
-  top: 15%;
-  margin-left: 20px;
   background-color: #343c4c;
   color: white;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 mat-card-subtitle {
@@ -15,6 +17,41 @@ mat-grid-tile {
 }
 
 .status {
-  background-color: aquamarine;
+  color: whitesmoke;
+  width: 70px;
+  height: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 10px;
+}
+
+mat-icon {
+  font-size: 17px;
+  margin-top: 2px;
+  vertical-align: middle;
+}
+
+.title {
+  text-align: left;
+}
+
+.container {
+  display: flex;
+}
+
+.fill {
+  flex: 1 1;
+}
+
+.approved {
+  background-color: green;
+}
+
+.rejected {
+  background-color: red;
+}
+
+.pending {
+  background-color: yellow;
   color: black;
 }

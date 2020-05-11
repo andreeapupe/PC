@@ -1,21 +1,32 @@
-<mat-card *ngFor="let request of arrCertifications">
-  <mat-card class="cards">
-    <mat-card-title>
-      <mat-grid-list cols="2" rowHeight="100px">
-        <mat-grid-tile>{{ request.certificationTitle }}</mat-grid-tile>
-        <mat-grid-tile
-          ><mat-card class="status">{{
-            request.status
-          }}</mat-card></mat-grid-tile
-        >
-      </mat-grid-list>
-    </mat-card-title>
-    <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
-    <hr />
-    <mat-card-content>
-      <p>Name: {{ request.userName }}</p>
-      <p>Quarter: Q{{ request.quarter }}</p>
-      <p>Cost: {{ request.price }}$</p>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="cards" *ngFor="let request of arrCertifications">
+  <div class="container">
+    <a>
+      <mat-card-title>{{ request.certificationTitle }} </mat-card-title>
+      <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
+    </a>
+    <div class="fill"></div>
+    <mat-card
+      class="status"
+      [ngClass]="{
+        approved: request.status == 'Approved',
+        rejected: request.status == 'Rejected',
+        pending: request.status == 'Pending'
+      }"
+      >{{ request.status }}</mat-card
+    >
+  </div>
+  <hr />
+  <mat-card-content>
+    <p>Name: {{ request.userName }}</p>
+    <p>Quarter: Q{{ request.quarter }}</p>
+    <p>Cost: {{ request.price }}$</p>
+    <p>Business Justification: {{ request.businessJustification }}</p>
+  </mat-card-content>
+  <mat-card-content>
+    <div fxFlex></div>
+
+    <button mat-stroked-button color="accent">
+      Edit<mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-content>
 </mat-card>
