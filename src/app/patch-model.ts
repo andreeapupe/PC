@@ -1,4 +1,3 @@
 export class PatchModel {
-  id: number
-  business_justification: string
+  constructor(public id: number, public business_justification: string) {}
 }

@@ -1,15 +1,15 @@
-<!-- FORM IF IT IS IN SUBMIT MODE -->
-<form [formGroup]="requestForm">
+<!-- ############FORM SUBMIT MODE #################################### -->
+
+<form [formGroup]="requestForm" *ngIf="!edit">
   <div class="container">
-    <h2 *ngIf="!edit">Request a certification</h2>
-    <h2 *ngIf="edit">Edit certification</h2>
+    <h2>Request a certification</h2>
     <div class="fill"></div>
     <button mat-icon-button mat-dialog-close>x</button>
   </div>
   <mat-divider></mat-divider>
   <br />
-  <h4 *ngIf="!edit">Choose a certification</h4>
-  <mat-form-field appearance="outline" *ngIf="!edit">
+  <h4>Choose a certification</h4>
+  <mat-form-field appearance="outline">
     <mat-label>Choose Certification</mat-label>
     <mat-select formControlName="title">
       <mat-option *ngFor="let request of requests" [value]="request.id">
@@ -18,11 +18,40 @@
     </mat-select>
   </mat-form-field>
 
-  <!-- ###### EDIT REQUEST #############-->
-  <h4 *ngIf="edit">Certification Title</h4>
-  <mat-form-field *ngIf="edit" appearance="outline">
+  <mat-divider></mat-divider>
+  <h4>Business Justification</h4>
+  <mat-form-field appearance="outline" class="business-justification">
+    <mat-label>Business Justification</mat-label>
+    <textarea
+      matInput
+      placeholder="Ex. Employers looking to hire want you to have knowledge, experience and certifications in your areas of expertise."
+      formControlName="justification"
+    ></textarea>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    class="submit-button"
+    (click)="submitRequest()"
+  >
+    Submit
+  </button>
+</form>
+
+<!-- ############################ EDIT FORM #################################-->
+
+<form *ngIf="edit" [formGroup]="editForm">
+  <div class="container">
+    <h2>Edit certification</h2>
+    <div class="fill"></div>
+    <button mat-icon-button mat-dialog-close>x</button>
+  </div>
+  <mat-divider></mat-divider>
+  <br />
+  <h4>Certification Title</h4>
+  <mat-form-field appearance="outline">
     <mat-label>{{ request.certificationTitle }}</mat-label>
-    <mat-select> </mat-select>
+    <mat-select formControlName="title"> </mat-select>
   </mat-form-field>
 
   <br />
@@ -31,36 +60,14 @@
   <h4>Business Justification</h4>
   <mat-form-field appearance="outline" class="business-justification">
     <mat-label>Business Justification</mat-label>
-    <textarea
-      *ngIf="!edit"
-      matInput
-      placeholder="Ex. Employers looking to hire want you to have knowledge, experience and certifications in your areas of expertise."
-      formControlName="justification"
-    ></textarea>
-
-    <textarea
-      *ngIf="edit"
-      matInput
-      value="{{ request.businessJustification }}"
-      formControlName="justification"
-    ></textarea>
+    <textarea matInput formControlName="justification"></textarea>
   </mat-form-field>
-  <button
-    *ngIf="!edit"
-    mat-raised-button
-    mat-dialog-close
-    class="submit-button"
-    (click)="submitRequest()"
-  >
-    Submit
-  </button>
 
   <button
-    *ngIf="edit"
     mat-raised-button
     mat-dialog-close
     class="submit-button"
-    (click)="submitRequest()"
+    (click)="submitChanges()"
   >
     Submit Changes
   </button>

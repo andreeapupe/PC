@@ -1,7 +1,10 @@
 <app-nav-toolbar></app-nav-toolbar>
 
-<mat-card *ngFor="let request of allCertifications">
-  <mat-card class="cards">
+<mat-card>
+  <button mat-stroked-button (click)="openDialogFilterModal()">
+    Filter your list
+  </button>
+  <mat-card class="cards" *ngFor="let request of allCertifications">
     <div class="container">
       <a>
         <mat-card-title> {{ request.certificationTitle }} </mat-card-title>

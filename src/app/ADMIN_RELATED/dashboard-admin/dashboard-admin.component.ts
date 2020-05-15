@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { HttpService } from '../../http.service'
 import { DeleteModalComponent } from 'src/app/USER_RELATED/delete-modal/delete-modal.component'
 import { MatDialog } from '@angular/material/dialog'
+import { FilterModalComponent } from '../filter-modal/filter-modal.component'
+import { ApproveRejectModel } from 'src/app/approve-reject-model'
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -9,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog'
   styleUrls: ['./dashboard-admin.component.css'],
 })
 export class DashboardAdminComponent implements OnInit {
+  approverejectcopy: ApproveRejectModel
   allCertifications: string[]
 
   constructor(private httpService: HttpService, public dialog: MatDialog) {}
@@ -31,4 +34,25 @@ export class DashboardAdminComponent implements OnInit {
       })
     })
   }
+
+  openDialogFilterModal() {
+    const dialogRef = this.dialog.open(FilterModalComponent)
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.httpService
+        .filterRequestsByBoth(1, 'Pending')
+        .subscribe((response) => {
+          this.allCertifications = response
+        })
+    })
+  }
+  /*
+  submitRequest(): void {
+    let apprej: ApproveRejectModel
+
+    this.httpService
+      .adminPatchRequests(apprej, 22)
+      .subscribe((response) => console.log(response))
+  }
+  */
 }

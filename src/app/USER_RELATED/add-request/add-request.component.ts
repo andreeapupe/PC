@@ -16,6 +16,7 @@ export class AddRequestComponent implements OnInit {
   requests: ReqModel[]
   request: CertificationsModel
   edit: boolean
+  editForm: FormGroup
 
   constructor(
     private httpService: HttpService,
@@ -27,6 +28,7 @@ export class AddRequestComponent implements OnInit {
       console.log(this.request)
 
       this.edit = this.data.edit
+      console.log(data)
     }
   }
 
@@ -42,6 +44,19 @@ export class AddRequestComponent implements OnInit {
         Validators.required,
       ],
     })
+
+    if (this.edit) {
+      this.editForm = this.formBuilder.group({
+        title: [
+          { value: this.request.certificationTitle, disabled: this.edit },
+        ],
+        justification: [
+          this.request.businessJustification.toString(),
+          Validators.required,
+        ],
+      })
+      console.log(typeof this.request.businessJustification)
+    }
 
     this.httpService.getCertifications().subscribe((response) => {
       this.requests = response
@@ -63,10 +78,15 @@ export class AddRequestComponent implements OnInit {
   }
 
   submitChanges(): void {
-    let request: PatchModel
+    if (this.editForm.valid) {
+      let request = new PatchModel(
+        this.data.body.requestId,
+        this.editForm.controls['justification'].value
+      )
 
-    this.httpService
-      .updateUserRequest(request.id)
-      .subscribe((response) => console.log(response))
+      this.httpService
+        .updateUserRequest(request)
+        .subscribe((response) => console.log(response))
+    }
   }
 }

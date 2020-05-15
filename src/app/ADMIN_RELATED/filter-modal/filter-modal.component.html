@@ -1,0 +1,34 @@
+<!-- FORM IF IT IS IN SUBMIT MODE -->
+<form>
+  <div class="container">
+    <h2>Filter your search</h2>
+    <div class="fill"></div>
+    <button mat-icon-button mat-dialog-close>x</button>
+  </div>
+  <mat-divider></mat-divider>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by quarter</mat-label>
+    <mat-select>
+      <mat-option></mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br />
+
+  <mat-divider></mat-divider>
+  <h4>Filter by status</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by status</mat-label>
+    <mat-select>
+      <mat-option value="Approved">Approved</mat-option>
+      <mat-option value="Rejected">Rejected</mat-option>
+      <mat-option value="Pending">Pending</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="fill"></div>
+  <button mat-raised-button>
+    Confirm filters
+  </button>
+</form>
