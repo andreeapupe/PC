@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Inject } from '@angular/core'
 import { ReqModel } from '../../req-model'
 import { HttpService } from '../../http.service'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
+import { MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { CertificationsModel } from 'src/app/certifications-model'
+import { PatchModel } from 'src/app/patch-model'
 
 @Component({
   selector: 'app-add-request',
@@ -11,15 +14,33 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 export class AddRequestComponent implements OnInit {
   requestForm: FormGroup
   requests: ReqModel[]
+  request: CertificationsModel
+  edit: boolean
+
   constructor(
     private httpService: HttpService,
-    public formBuilder: FormBuilder
-  ) {}
+    public formBuilder: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    if (this.data) {
+      this.request = this.data.body
+      console.log(this.request)
+
+      this.edit = this.data.edit
+    }
+  }
 
   ngOnInit(): void {
     this.requestForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      justification: ['', Validators.required],
+      title: [
+        /*
+        { value: this.request.certificationTitle, disabled: this.edit }*/ '',
+        Validators.required,
+      ],
+      justification: [
+        /*{ value: '', disabled: this.edit }*/ '',
+        Validators.required,
+      ],
     })
 
     this.httpService.getCertifications().subscribe((response) => {
@@ -39,5 +60,13 @@ export class AddRequestComponent implements OnInit {
         .postRequest(request)
         .subscribe((response) => console.log(response))
     }
+  }
+
+  submitChanges(): void {
+    let request: PatchModel
+
+    this.httpService
+      .updateUserRequest(request.id)
+      .subscribe((response) => console.log(response))
   }
 }

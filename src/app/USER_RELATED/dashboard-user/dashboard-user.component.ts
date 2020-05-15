@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog'
-import { AddRequestComponent } from '../add-request/add-request.component'
 
 @Component({
   selector: 'app-dashboard-user',
@@ -8,16 +6,7 @@ import { AddRequestComponent } from '../add-request/add-request.component'
   styleUrls: ['./dashboard-user.component.css'],
 })
 export class DashboardUserComponent implements OnInit {
-  showFiller = false
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  openDialog() {
-    const dialogRef = this.dialog.open(AddRequestComponent)
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed')
-    })
-  }
 }

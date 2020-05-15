@@ -29,17 +29,25 @@
 
     <mat-card-content>
       <mat-grid-list cols="3">
-        <button mat-stroked-button class="approve-button">
-          <mat-icon>done</mat-icon>Approve
-        </button>
+        <div *ngIf="request.status === 'Pending'">
+          <button mat-stroked-button class="approve-button">
+            <mat-icon>done</mat-icon>Approve
+          </button>
 
-        <button mat-stroked-button class="reject-button">
-          <mat-icon>highlight_off</mat-icon>Reject
-        </button>
-
+          <button mat-stroked-button class="reject-button">
+            <mat-icon>highlight_off</mat-icon>Reject
+          </button>
+        </div>
         <div fxFlex></div>
-        <button mat-stroked-button class="edit-button">
+        <!--<button mat-stroked-button class="edit-button">
           Edit<mat-icon>edit</mat-icon>
+        </button>-->
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="deleteDialog(request.requestId)"
+        >
+          Delete request<mat-icon>delete</mat-icon>
         </button>
       </mat-grid-list>
     </mat-card-content>

@@ -30,6 +30,7 @@ import { RequestCardComponent } from './request-card/request-card.component'
 import { AddRequestComponent } from './USER_RELATED/add-request/add-request.component'
 import { NavToolbarComponent } from './ADMIN_RELATED/nav-toolbar/nav-toolbar.component'
 import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-toolbar-user.component'
+import { DeleteModalComponent } from './USER_RELATED/delete-modal/delete-modal.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-too
     NavToolbarComponent,
     RoutingComponents,
     NavToolbarUserComponent,
+    DeleteModalComponent,
   ],
   entryComponents: [AddRequestComponent],
   imports: [

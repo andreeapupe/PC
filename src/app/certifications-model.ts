@@ -1,14 +1,14 @@
 export class CertificationsModel {
   constructor(
-    requestId: number,
-    userId: 3,
-    userName: string,
-    certificationTitle: string,
-    categoryId: number,
-    quarter: number,
-    categoryName: string,
-    status: string,
-    price: number,
-    businessJustification: string
+    public requestId: number,
+    public userId: 3,
+    public userName: string,
+    public certificationTitle: string,
+    public categoryId: number,
+    public quarter: number,
+    public categoryName: string,
+    public status: string,
+    public price: number,
+    public businessJustification: string
   ) {}
 }

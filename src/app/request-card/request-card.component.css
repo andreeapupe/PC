@@ -17,12 +17,13 @@ mat-grid-tile {
 }
 
 .status {
-  color: whitesmoke;
+  color: black;
   width: 70px;
   height: 10px;
   text-align: center;
   vertical-align: middle;
   line-height: 10px;
+  font-size: 15.2px;
 }
 
 mat-icon {
@@ -44,7 +45,7 @@ mat-icon {
 }
 
 .approved {
-  background-color: green;
+  background-color: #acfd9f;
 }
 
 .rejected {
@@ -52,6 +53,13 @@ mat-icon {
 }
 
 .pending {
-  background-color: yellow;
-  color: black;
+  background-color: #fdeb9f;
+}
+
+.button {
+  background-color: #556ee6;
+}
+
+.big-back {
+  background-color: tomato;
 }

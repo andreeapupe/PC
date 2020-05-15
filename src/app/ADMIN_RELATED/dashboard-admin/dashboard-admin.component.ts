@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { HttpService } from '../../http.service'
+import { DeleteModalComponent } from 'src/app/USER_RELATED/delete-modal/delete-modal.component'
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -10,19 +11,24 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 export class DashboardAdminComponent implements OnInit {
   allCertifications: string[]
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpService: HttpService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.http
-      .get('https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests')
-      .subscribe(
-        (data) => {
-          this.allCertifications = data as string[]
-          console.log(this.allCertifications)
-        },
-        (err: HttpErrorResponse) => {
-          console.log(err.message)
-        }
-      )
+    this.httpService.getAllRequests().subscribe((response) => {
+      this.allCertifications = response as string[]
+      console.log(this.allCertifications)
+    })
+  }
+
+  deleteDialog(id: number) {
+    const dialog = this.dialog.open(DeleteModalComponent, { data: { id: id } })
+    console.log('The delete dialog was closed')
+
+    dialog.afterClosed().subscribe((result) => {
+      this.httpService.getAllRequests().subscribe((response) => {
+        this.allCertifications = response as string[]
+        console.log(this.allCertifications)
+      })
+    })
   }
 }

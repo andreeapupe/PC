@@ -1,9 +1,9 @@
 .cards {
-  background-color: indianred;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 5px;
+  background-color: #f5cd7a;
+  height: 200px;
+  width: 400px;
   margin-right: 5px;
+  color: black;
 }
 
 .back {
