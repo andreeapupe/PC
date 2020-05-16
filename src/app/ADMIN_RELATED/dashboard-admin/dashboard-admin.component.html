@@ -33,11 +33,19 @@
     <mat-card-content>
       <mat-grid-list cols="3">
         <div *ngIf="request.status === 'Pending'">
-          <button mat-stroked-button class="approve-button">
+          <button
+            mat-stroked-button
+            class="approve-button"
+            (click)="openDialogAcceptReject(request.requestId, 'Approved')"
+          >
             <mat-icon>done</mat-icon>Approve
           </button>
 
-          <button mat-stroked-button class="reject-button">
+          <button
+            mat-stroked-button
+            class="reject-button"
+            (click)="openDialogAcceptReject(request.requestId, 'Rejected')"
+          >
             <mat-icon>highlight_off</mat-icon>Reject
           </button>
         </div>

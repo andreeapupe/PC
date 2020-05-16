@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { ReqModel } from './req-model'
-import { ApproveRejectModel } from './approve-reject-model'
-import { PatchModel } from './patch-model'
+import { ReqModel } from './models/req-model'
+import { ApproveRejectModel } from './models/approve-reject-model'
+import { PatchModel } from './models/patch-model'
 
 @Injectable({
   providedIn: 'root',
@@ -41,25 +41,6 @@ export class HttpService {
     )
   }
 
-  /*
-  userPatchOwnRequest(certificationPatch: PatchModel): Observable<any> {
-    let userPatchRequestEndpoint= '/requests/28'
-    return this.http.patch(
-      this.url + userPatchRequestEndpoint,
-      certificationPatch, this.httpOptions }
-    )
-  }
-
-
-  userPatchOwnRequest(id: number): Observable<any> {
-    let userPatchOwnRequestEndpoint = '/requests'
-    return this.http.patch(
-      this.url + userPatchOwnRequestEndpoint + id,
-      this.httpOptions
-    )
-  }
-*/
-
   deleteOwnRequest(id: number): Observable<any> {
     let delOwnRequest = '/requests/'
     return this.http.delete(this.url + delOwnRequest + id, {
@@ -77,44 +58,21 @@ export class HttpService {
 
   /*############## ADMIN RELATED HTTP REQUESTS #################*/
 
-  getAllRequests(): Observable<any> {
-    let allRequestsEndpoint = '/admin/requests'
+  getAllRequests(id?: number, status?: string): Observable<any> {
+    let allRequestsEndpoint = `/admin/requests?status= ${status}&quarter= ${id}`
     return this.http.get(this.url + allRequestsEndpoint)
   }
 
-  filterRequestsByQuarter(id: number): Observable<any> {
-    let filterRequestsByQuarterEndpoint = '/admin/requests?quarter='
-    return this.http.get(this.url + filterRequestsByQuarterEndpoint + id)
-  }
-
-  filterRequestsByStatus(status: string): Observable<any> {
-    let filterRequestsByStatusEndpoint = '/admin/requests?status='
-    return this.http.get(this.url + filterRequestsByStatusEndpoint + status)
-  }
-
+  /* de sters */
   filterRequestsByBoth(id: number, status: string): Observable<any> {
     return this.http.get(
       this.url + '/admin/requests?quarter=' + id + '&status=' + status
     )
   }
 
-  /*adminPatchRequests(
-    approvereject: ApproveRejectModel,
-    id: number
-  ): Observable<any> {
-    let userPatchOwnRequestEndpoint = 'admin/requests/'
+  adminPatchRequests(approvereject: ApproveRejectModel) {
+    let adminPatchRequestsEndpoint = '/admin/requests/'
     return this.http.patch(
-      this.url + userPatchOwnRequestEndpoint + id,
-      approvereject,
-      this.httpOptions
-    )
-  }*/
-
-  adminPatchRequests(
-    approvereject: ApproveRejectModel
-  ): Observable<ApproveRejectModel> {
-    let adminPatchRequestsEndpoint = 'admin/requests/'
-    return this.http.put<ApproveRejectModel>(
       this.url + adminPatchRequestsEndpoint + approvereject.id,
       approvereject,
       this.httpOptions

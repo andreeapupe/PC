@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpService } from '../http.service'
-import { CertificationsModel } from '../certifications-model'
+import { CertificationsModel } from '../models/certifications-model'
 import { MatDialog } from '@angular/material/dialog'
 import { AddRequestComponent } from '../USER_RELATED/add-request/add-request.component'
 import { DeleteModalComponent } from '../USER_RELATED/delete-modal/delete-modal.component'
-import { PatchModel } from '../patch-model'
+import { PatchModel } from '../models/patch-model'
 
 @Component({
   selector: 'app-request-card',

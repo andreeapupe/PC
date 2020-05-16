@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core'
-import { ReqModel } from '../../req-model'
+import { ReqModel } from '../../models/req-model'
 import { HttpService } from '../../http.service'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
-import { CertificationsModel } from 'src/app/certifications-model'
-import { PatchModel } from 'src/app/patch-model'
+import { CertificationsModel } from 'src/app/models/certifications-model'
+import { PatchModel } from 'src/app/models/patch-model'
 
 @Component({
   selector: 'app-add-request',

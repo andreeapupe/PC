@@ -3,7 +3,8 @@ import { HttpService } from '../../http.service'
 import { DeleteModalComponent } from 'src/app/USER_RELATED/delete-modal/delete-modal.component'
 import { MatDialog } from '@angular/material/dialog'
 import { FilterModalComponent } from '../filter-modal/filter-modal.component'
-import { ApproveRejectModel } from 'src/app/approve-reject-model'
+import { ApproveRejectModel } from 'src/app/models/approve-reject-model'
+import { ChangeStatusModalComponent } from '../change-status-modal/change-status-modal.component'
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -46,13 +47,17 @@ export class DashboardAdminComponent implements OnInit {
         })
     })
   }
-  /*
-  submitRequest(): void {
-    let apprej: ApproveRejectModel
 
-    this.httpService
-      .adminPatchRequests(apprej, 22)
-      .subscribe((response) => console.log(response))
+  openDialogAcceptReject(id: number, status: string) {
+    let approveObject: ApproveRejectModel = { id: id, status: status }
+    const dialogRef = this.dialog.open(ChangeStatusModalComponent, {
+      data: { body: approveObject },
+    })
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.httpService.getAllRequests().subscribe((response) => {
+        this.allCertifications = response
+      })
+    })
   }
-  */
 }

@@ -31,7 +31,8 @@ import { AddRequestComponent } from './USER_RELATED/add-request/add-request.comp
 import { NavToolbarComponent } from './ADMIN_RELATED/nav-toolbar/nav-toolbar.component'
 import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-toolbar-user.component'
 import { DeleteModalComponent } from './USER_RELATED/delete-modal/delete-modal.component';
-import { FilterModalComponent } from './ADMIN_RELATED/filter-modal/filter-modal.component'
+import { FilterModalComponent } from './ADMIN_RELATED/filter-modal/filter-modal.component';
+import { ChangeStatusModalComponent } from './ADMIN_RELATED/change-status-modal/change-status-modal.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FilterModalComponent } from './ADMIN_RELATED/filter-modal/filter-modal.
     NavToolbarUserComponent,
     DeleteModalComponent,
     FilterModalComponent,
+    ChangeStatusModalComponent,
   ],
   entryComponents: [AddRequestComponent],
   imports: [

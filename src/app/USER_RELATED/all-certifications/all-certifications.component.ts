@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpService } from '../../http.service'
-import { ReqModel } from '../../req-model'
+import { ReqModel } from '../../models/req-model'
+import { CertificationsModel } from 'src/app/models/certifications-model'
 
 @Component({
   selector: 'app-all-certifications',
@@ -9,6 +10,7 @@ import { ReqModel } from '../../req-model'
 })
 export class AllCertificationsComponent implements OnInit {
   requests: ReqModel[]
+  allCertifications: CertificationsModel[]
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
