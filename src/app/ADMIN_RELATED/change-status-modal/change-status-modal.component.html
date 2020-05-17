@@ -1,10 +1,17 @@
-<h2>Are you sure you want to approve this request?</h2>
+<h2>Are you sure you want change the status for this request?</h2>
 
-<button
-  mat-raised-button
-  color="warn"
-  (click)="submitChanges()"
-  mat-dialog-close
->
-  Nu am scris ncm
-</button>
+<div>
+  <button mat-raised-button color="accent">
+    Cancel
+  </button>
+
+  <div fxFlex></div>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="submitChanges()"
+    mat-dialog-close
+  >
+    Confirm
+  </button>
+</div>

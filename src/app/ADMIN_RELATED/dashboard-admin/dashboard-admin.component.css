@@ -23,11 +23,15 @@
 
 .approve-button {
   background-color: rgb(39, 174, 96, 0.8);
+  height: 35px;
+  width: 80px;
 }
 
 .reject-button {
   background-color: rgb(192, 57, 43, 0.8);
   margin-left: 4px;
+  height: 35px;
+  width: 80px;
 }
 
 .edit-button {
@@ -35,7 +39,8 @@
 }
 
 .approved {
-  background-color: green;
+  background-color: #00dbc6;
+  color: black;
 }
 
 .rejected {
@@ -43,7 +48,7 @@
 }
 
 .pending {
-  background-color: yellow;
+  background-color: #ffe5b4;
   color: black;
 }
 
@@ -55,8 +60,6 @@
   flex: 1 1;
 }
 
-.excel-button {
-  flex-wrap: wrap;
-  align-content: center;
-  margin-bottom: 15px;
+.button {
+  background-color: #7268a6;
 }

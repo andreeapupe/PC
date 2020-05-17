@@ -2,20 +2,19 @@
 
 <mat-card>
   <div>
-    <button mat-stroked-button (click)="openDialogFilterModal()">
+    <button mat-stroked-button class="button" (click)="openDialogFilterModal()">
       Filter your list
     </button>
+    <div>
+      Filters active: {{ filterStatus != '' ? 'status' : '' }}
+      {{ filterQuarter != '' ? 'quarter' : '' }}
+    </div>
     <div fxFlex></div>
 
     <div></div>
-    <button mat-mini-fab>
-      <a
-        href="https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests/excel"
-      >
-        <i
-          class="far fa-file-excel excel-button"
-          style="font-size: 25px; color: black;"
-        ></i>
+    <button mat-mini-fab class="button">
+      <a [href]="downloadLink">
+        <i class="far fa-file-excel" style="font-size: 25px; color: black;"></i>
       </a>
     </button>
   </div>
@@ -53,7 +52,7 @@
             class="approve-button"
             (click)="openDialogAcceptReject(request.requestId, 'Approved')"
           >
-            <mat-icon>done</mat-icon>Approve
+            Approve
           </button>
 
           <button
@@ -61,7 +60,7 @@
             class="reject-button"
             (click)="openDialogAcceptReject(request.requestId, 'Rejected')"
           >
-            <mat-icon>highlight_off</mat-icon>Reject
+            Reject
           </button>
         </div>
         <div fxFlex></div>

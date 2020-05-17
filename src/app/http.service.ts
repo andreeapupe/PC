@@ -65,11 +65,22 @@ export class HttpService {
   }
 */
 
+  getAllRequests(status: string, id: string): Observable<any> {
+    let allRequestsEndpoint =
+      '/admin/requests' +
+      (status != '' || id != '' ? '?' : '') +
+      (status != '' ? 'status=' + status : '') +
+      (status != '' && id != '' ? '&' : '') +
+      (id != '' ? 'quarter=' + id : '')
+    return this.http.get(this.url + allRequestsEndpoint)
+  }
+
+  /*
   getAllRequests(): Observable<any> {
     let allRequestsEndpoint = '/admin/requests'
     return this.http.get(this.url + allRequestsEndpoint)
   }
-
+*
   /* de sters */
   filterRequestsByBoth(id: number, status: string): Observable<any> {
     return this.http.get(

@@ -14,14 +14,26 @@ import { ChangeStatusModalComponent } from '../change-status-modal/change-status
 export class DashboardAdminComponent implements OnInit {
   approverejectcopy: ApproveRejectModel
   allCertifications: string[]
+  public downloadLink: string
+  public filterStatus: string = ''
+  public filterQuarter: string = ''
 
   constructor(private httpService: HttpService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.httpService.getAllRequests().subscribe((response) => {
+    this.httpService.getAllRequests('', '').subscribe((response) => {
       this.allCertifications = response as string[]
       console.log(this.allCertifications)
     })
+    this.getDownloadLink()
+  }
+  getDownloadLink() {
+    this.downloadLink =
+      'https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests/excel' +
+      (this.filterStatus != '' || this.filterQuarter != '' ? '?' : '') +
+      (this.filterStatus != '' ? 'status=' + this.filterStatus : '') +
+      (this.filterStatus != '' && this.filterQuarter != '' ? '&' : '') +
+      (this.filterQuarter != '' ? 'quarter=' + this.filterQuarter : '')
   }
 
   deleteDialog(id: number) {
@@ -29,7 +41,7 @@ export class DashboardAdminComponent implements OnInit {
     console.log('The delete dialog was closed')
 
     dialog.afterClosed().subscribe((result) => {
-      this.httpService.getAllRequests().subscribe((response) => {
+      this.httpService.getAllRequests('', '').subscribe((response) => {
         this.allCertifications = response as string[]
         console.log(this.allCertifications)
       })
@@ -37,14 +49,22 @@ export class DashboardAdminComponent implements OnInit {
   }
 
   openDialogFilterModal() {
-    const dialogRef = this.dialog.open(FilterModalComponent)
+    const dialogRef = this.dialog.open(FilterModalComponent, {
+      data: { status: this.filterStatus, quarter: this.filterQuarter },
+    })
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.httpService
-        .filterRequestsByBoth(1, 'Pending')
-        .subscribe((response) => {
-          this.allCertifications = response
-        })
+      console.log(result)
+      if (result) {
+        this.filterQuarter = result.quarter
+        this.filterStatus = result.status
+        this.getDownloadLink()
+        this.httpService
+          .getAllRequests(result.status, result.quarter)
+          .subscribe((response) => {
+            this.allCertifications = response
+          })
+      }
     })
   }
 
@@ -55,7 +75,7 @@ export class DashboardAdminComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.httpService.getAllRequests().subscribe((response) => {
+      this.httpService.getAllRequests('', '').subscribe((response) => {
         this.allCertifications = response
       })
     })

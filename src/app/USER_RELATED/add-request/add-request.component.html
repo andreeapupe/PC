@@ -11,21 +11,15 @@
   <h4>Choose a certification</h4>
   <mat-form-field appearance="outline">
     <mat-label>Choose Certification</mat-label>
-    <mat-select formControlName="title">
-      <mat-option *ngFor="let request of requests" [value]="request.id">
+    <mat-select formControlName="title" (selectionChange)="showQuarter()">
+      <mat-option *ngFor="let request of requests" [value]="request">
         {{ request.certificationTitle }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <br />
-  <mat-form-field appearance="outline">
-    <mat-label> Quarter </mat-label>
-    <mat-select>
-      <mat-option>a</mat-option>
-    </mat-select>
-  </mat-form-field>
-
+  <div *ngIf="quarter">This certification is in quarter {{ quarter }}</div>
   <mat-divider></mat-divider>
   <h4>Business Justification</h4>
   <mat-form-field appearance="outline" class="business-justification">

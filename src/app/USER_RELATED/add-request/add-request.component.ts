@@ -17,6 +17,7 @@ export class AddRequestComponent implements OnInit {
   request: CertificationsModel
   edit: boolean
   editForm: FormGroup
+  public quarter: string
 
   constructor(
     private httpService: HttpService,
@@ -66,7 +67,7 @@ export class AddRequestComponent implements OnInit {
   submitRequest(): void {
     if (this.requestForm.valid) {
       let request = new ReqModel(
-        this.requestForm.controls['title'].value,
+        this.requestForm.controls['title'].value.id,
         3,
         this.requestForm.controls['justification'].value
       )
@@ -88,5 +89,9 @@ export class AddRequestComponent implements OnInit {
         .updateUserRequest(request)
         .subscribe((response) => console.log(response))
     }
+  }
+  public showQuarter() {
+    this.quarter = this.requestForm.controls['title'].value.quarter
+    console.log(this.requestForm.controls['title'].value.quarter)
   }
 }
