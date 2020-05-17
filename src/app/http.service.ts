@@ -58,8 +58,15 @@ export class HttpService {
 
   /*############## ADMIN RELATED HTTP REQUESTS #################*/
 
+  /*
   getAllRequests(id?: number, status?: string): Observable<any> {
     let allRequestsEndpoint = `/admin/requests?status= ${status}&quarter= ${id}`
+    return this.http.get(this.url + allRequestsEndpoint)
+  }
+*/
+
+  getAllRequests(): Observable<any> {
+    let allRequestsEndpoint = '/admin/requests'
     return this.http.get(this.url + allRequestsEndpoint)
   }
 

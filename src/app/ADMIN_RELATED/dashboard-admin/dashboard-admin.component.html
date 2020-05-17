@@ -1,9 +1,24 @@
 <app-nav-toolbar></app-nav-toolbar>
 
 <mat-card>
-  <button mat-stroked-button (click)="openDialogFilterModal()">
-    Filter your list
-  </button>
+  <div>
+    <button mat-stroked-button (click)="openDialogFilterModal()">
+      Filter your list
+    </button>
+    <div fxFlex></div>
+
+    <div></div>
+    <button mat-mini-fab>
+      <a
+        href="https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests/excel"
+      >
+        <i
+          class="far fa-file-excel excel-button"
+          style="font-size: 25px; color: black;"
+        ></i>
+      </a>
+    </button>
+  </div>
   <mat-card class="cards" *ngFor="let request of allCertifications">
     <div class="container">
       <a>
