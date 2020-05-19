@@ -22,6 +22,9 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatMenuModule } from '@angular/material/menu'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatDividerModule } from '@angular/material/divider'
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 import 'hammerjs'
 import { CertBoxComponent } from './USER_RELATED/cert-box/cert-box.component'
@@ -69,6 +72,9 @@ import { ChangeStatusModalComponent } from './ADMIN_RELATED/change-status-modal/
     MatMenuModule,
     ReactiveFormsModule,
     MatDividerModule,
+    MatTooltipModule,
+    MatExpansionModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

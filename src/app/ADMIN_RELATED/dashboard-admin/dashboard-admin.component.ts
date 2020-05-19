@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { FilterModalComponent } from '../filter-modal/filter-modal.component'
 import { ApproveRejectModel } from 'src/app/models/approve-reject-model'
 import { ChangeStatusModalComponent } from '../change-status-modal/change-status-modal.component'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -12,13 +13,18 @@ import { ChangeStatusModalComponent } from '../change-status-modal/change-status
   styleUrls: ['./dashboard-admin.component.css'],
 })
 export class DashboardAdminComponent implements OnInit {
+  panelOpenState = false
   approverejectcopy: ApproveRejectModel
   allCertifications: string[]
   public downloadLink: string
   public filterStatus: string = ''
   public filterQuarter: string = ''
 
-  constructor(private httpService: HttpService, public dialog: MatDialog) {}
+  constructor(
+    private httpService: HttpService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.httpService.getAllRequests('', '').subscribe((response) => {
@@ -26,6 +32,16 @@ export class DashboardAdminComponent implements OnInit {
       console.log(this.allCertifications)
     })
     this.getDownloadLink()
+  }
+
+  openSnackBar() {
+    let snackBarRef = this.snackBar.open(
+      'Your download will begin in a moment',
+      'Dismiss',
+      {
+        duration: 3000,
+      }
+    )
   }
   getDownloadLink() {
     this.downloadLink =

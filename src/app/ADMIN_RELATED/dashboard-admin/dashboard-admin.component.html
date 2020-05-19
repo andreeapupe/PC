@@ -1,9 +1,9 @@
 <app-nav-toolbar></app-nav-toolbar>
 
-<mat-card>
+<mat-card class="background">
   <div>
     <button mat-stroked-button class="button" (click)="openDialogFilterModal()">
-      Filter your list
+      Filter list
     </button>
     <div class="search-filtered">
       Search filtered by: {{ filterStatus != '' ? 'Status' : '' }}
@@ -12,66 +12,149 @@
     </div>
     <div fxFlex></div>
 
-    <button mat-mini-fab class="button">
+    <button mat-mini-fab (click)="openSnackBar()">
       <a [href]="downloadLink">
         <i class="far fa-file-excel" style="font-size: 25px; color: white;"></i>
       </a>
     </button>
   </div>
-  <mat-card class="cards" *ngFor="let request of allCertifications">
-    <div class="container">
-      <a>
-        <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
-        <mat-card-subtitle> {{ request.categoryName }}</mat-card-subtitle>
-      </a>
-      <div class="fill"></div>
-      <mat-card
-        class="status"
-        [ngClass]="{
-          approved: request.status == 'Approved',
-          rejected: request.status == 'Rejected',
-          pending: request.status == 'Pending'
-        }"
-        >{{ request.status }}</mat-card
-      >
-    </div>
 
-    <hr />
-    <mat-card-content>
-      <p>Name: {{ request.userName }}</p>
-      <p>Quarter: Q{{ request.quarter }}</p>
-      <p>Cost: {{ request.price }}$</p>
-      <p>Business Justification: {{ request.businessJustification }}</p>
-    </mat-card-content>
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filter requests
+        </mat-panel-title>
+        <mat-panel-description>
+          {{
+            panelOpenState
+              ? 'Filter your search by quarter and/or status'
+              : 'Choose a quarter and/or a filter'
+          }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-    <mat-card-content>
-      <mat-grid-list cols="3">
-        <div *ngIf="request.status === 'Pending'">
-          <button
-            mat-stroked-button
-            class="approve-button"
-            (click)="openDialogAcceptReject(request.requestId, 'Approved')"
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by quarter</mat-label>
+        <mat-select>
+          <mat-option>-- None --</mat-option>
+          <mat-option value="1">Q1</mat-option>
+          <mat-option value="2"> Q2</mat-option>
+          <mat-option value="3">Q3</mat-option>
+          <mat-option value="4">Q4</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by status</mat-label>
+        <mat-select>
+          <mat-option>-- None --</mat-option>
+          <mat-option value="Approved">Approved</mat-option>
+          <mat-option value="Rejected">Rejected</mat-option>
+          <mat-option value="Pending">Pending</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-grid-list cols="4" rowHeight="670px">
+    <mat-grid-tile *ngFor="let request of allCertifications">
+      <mat-card class="cards">
+        <div class="container">
+          <a>
+            <mat-card-title> {{ request.userName }}</mat-card-title>
+            <mat-card-subtitle>
+              Request no. {{ request.requestId }}
+            </mat-card-subtitle>
+            <!--
+            <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
+            <mat-card-subtitle> {{ request.categoryName }}</mat-card-subtitle>
+            -->
+          </a>
+          <div class="fill"></div>
+          <mat-card
+            class="status"
+            [ngClass]="{
+              approved: request.status == 'Approved',
+              rejected: request.status == 'Rejected',
+              pending: request.status == 'Pending'
+            }"
+            >{{ request.status }}</mat-card
           >
-            Approve
-          </button>
-
-          <button
-            mat-stroked-button
-            class="reject-button"
-            (click)="openDialogAcceptReject(request.requestId, 'Rejected')"
-          >
-            Reject
-          </button>
         </div>
-        <div fxFlex></div>
-        <button
-          mat-stroked-button
-          color="warn"
-          (click)="deleteDialog(request.requestId)"
-        >
-          Delete request<mat-icon>delete</mat-icon>
-        </button>
-      </mat-grid-list>
-    </mat-card-content>
-  </mat-card>
+
+        <mat-card-content class="spacing">
+          <p>
+            <sub><mat-icon class="icon">assignment</mat-icon></sub
+            >Certification Title
+          </p>
+          <a>{{ request.certificationTitle }}</a>
+          <hr />
+          <p>
+            <sub><mat-icon class="icon">style</mat-icon></sub
+            >Category
+          </p>
+          <p>{{ request.categoryName }}</p>
+          <hr />
+          <p>
+            <sub><mat-icon class="icon">query_builder</mat-icon></sub
+            >Quarter
+          </p>
+          <p>Q{{ request.quarter }}</p>
+          <hr />
+
+          <p>
+            <sub><mat-icon class="icon"> insert_comment</mat-icon></sub
+            >Business Justification
+          </p>
+          <p>{{ request.businessJustification }}</p>
+        </mat-card-content>
+
+        <div class="footer-buttons">
+          <mat-card-content>
+            <mat-grid-list cols="3">
+              <a *ngIf="request.status === 'Pending'">
+                <button
+                  mat-stroked-button
+                  matTooltip="Approve this request"
+                  class="approve-button"
+                  (click)="
+                    openDialogAcceptReject(request.requestId, 'Approved')
+                  "
+                >
+                  Approve
+                </button>
+
+                <button
+                  mat-stroked-button
+                  matTooltip="Reject this request"
+                  class="reject-button"
+                  (click)="
+                    openDialogAcceptReject(request.requestId, 'Rejected')
+                  "
+                >
+                  Reject
+                </button>
+              </a>
+
+              <a fxFlex></a>
+              <a class="delete-button">
+                <button
+                  mat-stroked-button
+                  matTooltip="Delete this request"
+                  color="warn"
+                  (click)="deleteDialog(request.requestId)"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </a>
+            </mat-grid-list>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-card>
