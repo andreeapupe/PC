@@ -5,16 +5,16 @@
     <button mat-stroked-button class="button" (click)="openDialogFilterModal()">
       Filter your list
     </button>
-    <div>
-      Filters active: {{ filterStatus != '' ? 'status' : '' }}
-      {{ filterQuarter != '' ? 'quarter' : '' }}
+    <div class="search-filtered">
+      Search filtered by: {{ filterStatus != '' ? 'Status' : '' }}
+      {{ filterStatus }}
+      {{ filterQuarter != '' ? 'Quarter Q' : '' }} {{ filterQuarter }}
     </div>
     <div fxFlex></div>
 
-    <div></div>
     <button mat-mini-fab class="button">
       <a [href]="downloadLink">
-        <i class="far fa-file-excel" style="font-size: 25px; color: black;"></i>
+        <i class="far fa-file-excel" style="font-size: 25px; color: white;"></i>
       </a>
     </button>
   </div>
@@ -64,9 +64,6 @@
           </button>
         </div>
         <div fxFlex></div>
-        <!--<button mat-stroked-button class="edit-button">
-          Edit<mat-icon>edit</mat-icon>
-        </button>-->
         <button
           mat-stroked-button
           color="warn"

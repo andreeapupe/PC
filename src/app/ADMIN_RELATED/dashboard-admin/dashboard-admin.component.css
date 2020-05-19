@@ -63,3 +63,9 @@
 .button {
   background-color: #7268a6;
 }
+
+.search-filtered {
+  position: absolute;
+  margin-top: 10px;
+  left: 15%;
+}

@@ -58,13 +58,6 @@ export class HttpService {
 
   /*############## ADMIN RELATED HTTP REQUESTS #################*/
 
-  /*
-  getAllRequests(id?: number, status?: string): Observable<any> {
-    let allRequestsEndpoint = `/admin/requests?status= ${status}&quarter= ${id}`
-    return this.http.get(this.url + allRequestsEndpoint)
-  }
-*/
-
   getAllRequests(status: string, id: string): Observable<any> {
     let allRequestsEndpoint =
       '/admin/requests' +
@@ -73,19 +66,6 @@ export class HttpService {
       (status != '' && id != '' ? '&' : '') +
       (id != '' ? 'quarter=' + id : '')
     return this.http.get(this.url + allRequestsEndpoint)
-  }
-
-  /*
-  getAllRequests(): Observable<any> {
-    let allRequestsEndpoint = '/admin/requests'
-    return this.http.get(this.url + allRequestsEndpoint)
-  }
-*
-  /* de sters */
-  filterRequestsByBoth(id: number, status: string): Observable<any> {
-    return this.http.get(
-      this.url + '/admin/requests?quarter=' + id + '&status=' + status
-    )
   }
 
   adminPatchRequests(approvereject: ApproveRejectModel) {
