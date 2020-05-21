@@ -25,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 import 'hammerjs'
 import { CertBoxComponent } from './USER_RELATED/cert-box/cert-box.component'
@@ -36,6 +37,7 @@ import { NavToolbarUserComponent } from './USER_RELATED/nav-toolbar-user/nav-too
 import { DeleteModalComponent } from './USER_RELATED/delete-modal/delete-modal.component'
 import { FilterModalComponent } from './ADMIN_RELATED/filter-modal/filter-modal.component'
 import { ChangeStatusModalComponent } from './ADMIN_RELATED/change-status-modal/change-status-modal.component'
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { ChangeStatusModalComponent } from './ADMIN_RELATED/change-status-modal/
     MatTooltipModule,
     MatExpansionModule,
     MatSnackBarModule,
+    MatSidenavModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

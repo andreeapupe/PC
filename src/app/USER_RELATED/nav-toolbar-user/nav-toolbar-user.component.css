@@ -21,3 +21,7 @@ mat-card {
 .menu {
   color: tomato;
 }
+
+.toolbar-color {
+  background-color: #282d39;
+}

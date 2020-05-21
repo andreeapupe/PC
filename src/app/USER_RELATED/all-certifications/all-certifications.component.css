@@ -1,9 +1,8 @@
 .cards {
-  background-color: #f5cd7a;
-  height: 200px;
-  width: 400px;
+  background-color: #3f3d3a;
+  height: 300px;
+  width: 600px;
   margin-right: 5px;
-  color: black;
 }
 
 .back {
@@ -16,4 +15,18 @@ h2 {
 
 .margin {
   margin-top: 20px;
+}
+
+.header-image {
+  background-image: url('https://www.colourbox.com/preview/24614905-graduation-cap-icon.jpg');
+  background-size: cover;
+}
+
+mat-card-header {
+  height: 60px;
+}
+
+.line {
+  margin: 0px;
+  text-align: left;
 }

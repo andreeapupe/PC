@@ -12,12 +12,13 @@ import { PatchModel } from '../models/patch-model'
   styleUrls: ['./request-card.component.css'],
 })
 export class RequestCardComponent implements OnInit {
+  term: string
   arrCertifications: CertificationsModel[]
 
   constructor(private httpService: HttpService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.httpService.getUsersRequests(3).subscribe((response) => {
+    this.httpService.getUsersRequests(5).subscribe((response) => {
       this.arrCertifications = response
     })
   }
@@ -26,7 +27,7 @@ export class RequestCardComponent implements OnInit {
     const dialogRef = this.dialog.open(AddRequestComponent)
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.httpService.getUsersRequests(3).subscribe((response) => {
+      this.httpService.getUsersRequests(5).subscribe((response) => {
         this.arrCertifications = response
       })
     })
@@ -38,7 +39,7 @@ export class RequestCardComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.httpService.getUsersRequests(3).subscribe((response) => {
+      this.httpService.getUsersRequests(5).subscribe((response) => {
         this.arrCertifications = response
       })
     })
@@ -49,7 +50,7 @@ export class RequestCardComponent implements OnInit {
     console.log('The delete dialog was closed')
 
     dialog.afterClosed().subscribe((result) => {
-      this.httpService.getUsersRequests(3).subscribe((response) => {
+      this.httpService.getUsersRequests(5).subscribe((response) => {
         this.arrCertifications = response
       })
     })

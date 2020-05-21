@@ -68,7 +68,7 @@ export class AddRequestComponent implements OnInit {
     if (this.requestForm.valid) {
       let request = new ReqModel(
         this.requestForm.controls['title'].value.id,
-        3,
+        5,
         this.requestForm.controls['justification'].value
       )
 

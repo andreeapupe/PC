@@ -1,17 +1,39 @@
 <app-nav-toolbar-user> </app-nav-toolbar-user>
 
 <mat-card class="back">
-  <div class="margin"></div>
   <h2>Available certifications</h2>
-  <mat-grid-list cols="3">
+  <mat-grid-list cols="2" rowHeight="370px">
     <mat-grid-tile *ngFor="let request of requests">
       <mat-card class="cards">
-        <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
-        <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
-        <hr color="black" />
+        <mat-card-header>
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-title> {{ request.certificationTitle }} </mat-card-title>
+          <mat-card-subtitle>{{ request.categoryName }}</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-content>
-          <p>Available quarters: Q{{ request.quarter }}</p>
-          <p>Cost: {{ request.price }}$</p>
+          <div margin-top="20px">
+            <p>
+              Available quarters: <br />
+              Q{{ request.quarter }}
+            </p>
+            <hr color="#636363" />
+            <p>
+              Cost <br />
+              {{ request.price }}$
+            </p>
+            <hr color="#636363" />
+
+            <p>
+              Description: <br />
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
+            <hr color="#636363" />
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

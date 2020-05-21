@@ -8,6 +8,10 @@
   background-color: #282d39;
 }
 
+.navigate-text {
+  margin-left: 20px;
+}
+
 .cards {
   height: 600px;
   width: 300px;
@@ -35,7 +39,7 @@
 }
 
 .approve-button {
-  background-color: rgb(39, 174, 96, 0.8);
+  background-color: #44786a;
   height: 35px;
   width: 80px;
 }
@@ -52,8 +56,7 @@
 }
 
 .approved {
-  background-color: #acfd9f;
-  color: black;
+  background-color: #44786a;
 }
 
 .rejected {
@@ -90,7 +93,7 @@
 
 .search-filtered {
   position: absolute;
-  left: 15%;
+  left: 39%;
   margin-top: 10px;
   margin-left: 20px;
 }
@@ -114,4 +117,24 @@
 .spacing {
   margin-top: 30px;
   font-size: 12px;
+}
+
+.drawer-buttons {
+  width: 220px;
+  margin-left: 10px;
+  margin-top: 13px;
+}
+
+.logout-button {
+  color: red;
+}
+
+.toolbar-icon {
+  font-size: 35px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.cert-master-toolbar {
+  margin-left: 12px;
 }

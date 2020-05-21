@@ -1,5 +1,7 @@
 .cards {
-  background-color: #343c4c;
+  width: 700px;
+  height: 320px;
+  background-color: #353e4d;
   color: white;
   margin-bottom: 15px;
   margin-top: 15px;
@@ -18,7 +20,7 @@ mat-grid-tile {
 
 .status {
   color: black;
-  width: 70px;
+  width: 110px;
   height: 10px;
   text-align: center;
   vertical-align: middle;
@@ -57,5 +59,79 @@ mat-icon {
 }
 
 .button {
-  background-color: #556ee6;
+  background-color: #c4c4c4;
+  color: #353e4d;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.search-box {
+  width: 300%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #c4c4c4;
+}
+
+.search-mat-card {
+  height: 26px;
+  width: 97.3%;
+  display: flex;
+  align-items: center;
+  background-color: #353e4d;
+}
+
+.ceva {
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.footer-buttons {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.certification-title {
+  position: absolute;
+  left: 5px;
+  font-size: x-large;
+  height: 20px;
+}
+
+.div-matcard-status {
+  margin-top: 50px;
+  position: absolute;
+  left: 5px;
+}
+
+.certification-category {
+  position: absolute;
+  left: 5px;
+  font-size: large;
+  margin-top: 50px;
+}
+
+.center-things {
+  margin-bottom: 100px;
+  margin-left: 50px;
+}
+
+.align-status {
+  position: absolute;
+  left: 0;
+  font-size: large;
+  margin-top: 45px;
+}
+
+.edit-request-icon {
+  font-size: 25px;
+  margin-bottom: 90px;
 }

@@ -1,4 +1,4 @@
-<mat-toolbar>
+<!--<mat-toolbar>
   <mat-icon>blur_on</mat-icon>Cert-Master - ADMIN
   <span class="spacer"></span>
 
@@ -11,3 +11,25 @@
     <button mat-menu-item [routerLink]="['/authenticate']">Logout</button>
   </mat-menu>
 </mat-toolbar>
+-->
+
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="push" position="end">
+    <p>Auto-resizing sidenav</p>
+    <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    <button mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div>
+    <mat-toolbar>
+      <mat-icon>blur_on</mat-icon>Cert-Master - ADMIN
+      <span class="spacer"></span>
+
+      <button mat-button (click)="drawer.toggle()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+</mat-drawer-container>
