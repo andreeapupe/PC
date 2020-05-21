@@ -6,13 +6,12 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu" yPosition="below">
-    <button mat-menu-item [routerLink]="['/dashboard-user']">User</button>
-    <button mat-menu-item [routerLink]="['/dashboard-admin']">Admin</button>
+    <button mat-menu-item [routerLink]="['/dashboard-user']">
+      User
+    </button>
     <button mat-menu-item [routerLink]="['/all-certifications']">
       All Certifications
     </button>
-    <button mat-menu-item [routerLink]="['/authenticate']" class="menu">
-      Logout
-    </button>
+    <button mat-menu-item [routerLink]="['/dashboard-admin']">Admin</button>
   </mat-menu>
 </mat-toolbar>

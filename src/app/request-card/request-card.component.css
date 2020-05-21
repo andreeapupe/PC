@@ -18,32 +18,72 @@ mat-grid-tile {
   text-align: left;
 }
 
-.status {
-  color: black;
-  width: 110px;
-  height: 10px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 10px;
-  font-size: 15.2px;
-}
-
 mat-icon {
   font-size: 17px;
   margin-top: 2px;
   vertical-align: middle;
 }
 
-.title {
-  text-align: left;
+.button {
+  background-color: #c4c4c4;
+  color: #353e4d;
 }
 
-.container {
+.icon {
+  font-size: 40px;
+}
+
+.search-box {
+  width: 300%;
+  height: 40px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #c4c4c4;
+}
+
+.search-mat-card {
+  height: 26px;
+  width: 1480px;
   display: flex;
+  align-items: center;
+  background-color: #353e4d;
+  right: 20px;
+  bottom: 15px;
 }
 
-.fill {
-  flex: 1 1;
+/* ############# Certification-title related ################# */
+.certification-title {
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  left: 38px;
+  font-size: x-large;
+  height: 20px;
+}
+
+/* ############ Certification-category related ########### */
+.certification-category {
+  position: absolute;
+  left: 100px;
+  top: 115px;
+  left: 38px;
+  font-size: large;
+  height: 20px;
+}
+
+/*  ################### Status Related ################# */
+.status {
+  color: black;
+  width: 200px;
+  height: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 10px;
+  font-size: 15.2px;
 }
 
 .approved {
@@ -58,80 +98,72 @@ mat-icon {
   background-color: #fdeb9f;
 }
 
-.button {
-  background-color: #c4c4c4;
-  color: #353e4d;
-}
-
-.icon {
-  font-size: 40px;
-}
-
-.search-box {
-  width: 300%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #c4c4c4;
-}
-
-.search-mat-card {
-  height: 26px;
-  width: 97.3%;
-  display: flex;
-  align-items: center;
-  background-color: #353e4d;
-}
-
-.ceva {
-  text-align: center;
-  align-content: center;
-  vertical-align: middle;
-  align-items: center;
-}
-
-.footer-buttons {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-}
-
-.certification-title {
-  position: absolute;
-  left: 5px;
-  font-size: x-large;
-  height: 20px;
-}
-
 .div-matcard-status {
-  margin-top: 50px;
   position: absolute;
-  left: 5px;
-}
-
-.certification-category {
-  position: absolute;
-  left: 5px;
-  font-size: large;
-  margin-top: 50px;
-}
-
-.center-things {
-  margin-bottom: 100px;
-  margin-left: 50px;
+  top: 50px;
 }
 
 .align-status {
   position: absolute;
-  left: 0;
   font-size: large;
   margin-top: 45px;
+  left: 38px;
+  top: 100px;
 }
 
+/* ######### Edit request button related  ######## */
 .edit-request-icon {
   font-size: 25px;
   margin-bottom: 90px;
+  color: #c4c4c4;
+}
+
+::ng-deep .mat-menu-content {
+  background-color: #353e4d !important;
+}
+
+.delete-button {
+  color: red;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #282d39 !important;
+}
+
+/* ########## Request card details position ############# */
+.quarter-position {
+  position: absolute;
+  top: 40px;
+  left: 15px;
+}
+
+.cost-position {
+  position: absolute;
+  top: 60px;
+  left: 15px;
+}
+
+.business-justification-position {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  bottom: 40px;
+  top: 100px;
+}
+
+.vertical-line {
+  border-left: 1px solid #c4c4c4;
+  position: absolute;
+  margin-right: 14px;
+  height: 400px;
+  bottom: 20px;
+  left: 0px;
+}
+
+.search-icon {
+  color: black;
+  position: fixed;
+  top: 85px;
+  left: 20px;
+  font-size: 15px;
 }

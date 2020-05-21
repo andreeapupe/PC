@@ -12,10 +12,26 @@
   <mat-form-field appearance="outline">
     <mat-label>Choose Certification</mat-label>
     <mat-select formControlName="title" (selectionChange)="showQuarter()">
+      <mat-option>---None----</mat-option>
       <mat-option *ngFor="let request of requests" [value]="request">
         {{ request.certificationTitle }}
       </mat-option>
     </mat-select>
+
+    <mat-hint>
+      <div
+        *ngIf="
+          requestForm.controls['title'].invalid &&
+          (requestForm.controls['title'].dirty ||
+            requestForm.controls['title'].touched)
+        "
+        class="form-error"
+      >
+        <div *ngIf="requestForm.controls['title'].errors.required">
+          This field is required.
+        </div>
+      </div>
+    </mat-hint>
   </mat-form-field>
 
   <br />
@@ -28,16 +44,57 @@
       matInput
       placeholder="Ex. Employers looking to hire want you to have knowledge, experience and certifications in your areas of expertise."
       formControlName="justification"
+      minlength="15"
     ></textarea>
+    <mat-hint>
+      <div
+        *ngIf="
+          requestForm.controls['justification'].invalid &&
+          (requestForm.controls['justification'].dirty ||
+            requestForm.controls['justification'].touched)
+        "
+        class="form-error"
+      >
+        <div *ngIf="requestForm.controls['justification'].errors.minlength">
+          The business justification must be at least 15 characters long.
+        </div>
+        <div *ngIf="requestForm.controls['justification'].errors.required">
+          Business justification is required.
+        </div>
+      </div>
+    </mat-hint>
   </mat-form-field>
-  <button
-    mat-raised-button
-    mat-dialog-close
-    class="submit-button"
-    (click)="submitRequest()"
+
+  <div
+    *ngIf="
+      (requestForm.controls['title'].invalid &&
+        requestForm.controls['justification'].invalid) ||
+      (requestForm.controls['justification'].valid &&
+        requestForm.controls['title'].invalid) ||
+      (requestForm.controls['justification'].invalid &&
+        requestForm.controls['title'].valid)
+    "
   >
-    Submit
-  </button>
+    <button mat-raised-button class="submit-button" disabled>
+      Submit request
+    </button>
+  </div>
+
+  <div
+    *ngIf="
+      requestForm.controls['title'].valid &&
+      requestForm.controls['justification'].valid
+    "
+  >
+    <button
+      mat-raised-button
+      mat-dialog-close
+      class="submit-button"
+      (click)="submitRequest()"
+    >
+      Submit request
+    </button>
+  </div>
 </form>
 
 <!-- ############################ EDIT FORM #################################-->
@@ -62,15 +119,44 @@
   <h4>Business Justification</h4>
   <mat-form-field appearance="outline" class="business-justification">
     <mat-label>Business Justification</mat-label>
-    <textarea matInput formControlName="justification"></textarea>
+    <textarea
+      matInput
+      formControlName="justification"
+      minlength="15"
+    ></textarea>
+    <mat-hint>
+      <div
+        *ngIf="
+          editForm.controls['justification'].invalid &&
+          (editForm.controls['justification'].dirty ||
+            editForm.controls['justification'].touched)
+        "
+        class="form-error"
+      >
+        <div *ngIf="editForm.controls['justification'].errors.minlength">
+          The business justification must be at least 15 characters long.
+        </div>
+        <div *ngIf="editForm.controls['justification'].errors.required">
+          Business justification is required.
+        </div>
+      </div>
+    </mat-hint>
   </mat-form-field>
 
-  <button
-    mat-raised-button
-    mat-dialog-close
-    class="submit-button"
-    (click)="submitChanges()"
-  >
-    Submit Changes
-  </button>
+  <div *ngIf="editForm.controls['justification'].invalid">
+    <button mat-raised-button class="submit-button" disabled>
+      Submit Changes
+    </button>
+  </div>
+
+  <div *ngIf="editForm.controls['justification'].valid">
+    <button
+      mat-raised-button
+      class="submit-button"
+      (click)="submitChanges()"
+      mat-dialog-close
+    >
+      Submit Changes
+    </button>
+  </div>
 </form>

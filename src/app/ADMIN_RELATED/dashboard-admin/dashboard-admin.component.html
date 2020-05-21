@@ -1,5 +1,5 @@
 <div>
-  <mat-toolbar>
+  <mat-toolbar class="toolbar-color">
     <mat-icon class="toolbar-icon">blur_on</mat-icon
     ><a class="cert-master-toolbar">Cert-Master</a>
     <span class="spacer"></span>
@@ -13,11 +13,9 @@
       <button mat-menu-item [routerLink]="['/all-certifications']">
         All Certifications
       </button>
-      <button mat-menu-item [routerLink]="['/authenticate']" class="menu">
-        Logout
-      </button>
     </mat-menu>
   </mat-toolbar>
+  <hr class="toolbar-hr" />
 
   <mat-card class="background">
     <div>
@@ -25,6 +23,7 @@
         mat-stroked-button
         class="button"
         (click)="openDialogFilterModal()"
+        matTooltip="Filter your search"
       >
         Choose filters
       </button>
@@ -35,7 +34,7 @@
       </div>
       <div fxFlex></div>
 
-      <button mat-mini-fab (click)="openSnackBar()">
+      <button mat-mini-fab (click)="openExcelSnackBar()" class="excel-button">
         <a [href]="downloadLink">
           <i
             class="far fa-file-excel"
@@ -110,7 +109,7 @@
                   </button>
 
                   <button
-                    mat-stroked-button
+                    mat-raised-button
                     matTooltip="Reject this request"
                     class="reject-button"
                     (click)="
@@ -121,17 +120,20 @@
                   </button>
                 </a>
 
-                <a fxFlex></a>
-                <a class="delete-button">
-                  <button
-                    mat-stroked-button
-                    matTooltip="Delete this request"
-                    color="warn"
-                    (click)="deleteDialog(request.requestId)"
-                  >
-                    <mat-icon>delete</mat-icon>
-                  </button>
-                </a>
+                <button
+                  *ngIf="
+                    request.status === 'Approved' ||
+                    request.status === 'Rejected'
+                  "
+                  mat-raised-button
+                  matTooltip="Delete this request"
+                  (click)="deleteDialog(request.requestId)"
+                  class="delete-button"
+                >
+                  Delete request<mat-icon>delete</mat-icon>
+                </button>
+
+                <!------------_#48394723847239842738742394872y3uhrnfdfkiujduij-->
               </mat-grid-list>
             </mat-card-content>
           </div>

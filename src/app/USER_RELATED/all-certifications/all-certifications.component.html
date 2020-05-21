@@ -1,7 +1,9 @@
 <app-nav-toolbar-user> </app-nav-toolbar-user>
 
 <mat-card class="back">
-  <h2>Available certifications</h2>
+  <mat-card class="all-certifications">
+    <h2>Available certifications</h2>
+  </mat-card>
   <mat-grid-list cols="2" rowHeight="370px">
     <mat-grid-tile *ngFor="let request of requests">
       <mat-card class="cards">
@@ -16,12 +18,12 @@
               Available quarters: <br />
               Q{{ request.quarter }}
             </p>
-            <hr color="#636363" />
+            <hr color="#c4c4c4" />
             <p>
               Cost <br />
               {{ request.price }}$
             </p>
-            <hr color="#636363" />
+            <hr color="#c4c4c4" />
 
             <p>
               Description: <br />
@@ -32,7 +34,6 @@
               survived not only five centuries, but also the leap into
               electronic typesetting, remaining essentially unchanged.
             </p>
-            <hr color="#636363" />
           </div>
         </mat-card-content>
       </mat-card>

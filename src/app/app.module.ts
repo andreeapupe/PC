@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core'
 import { AppRoutingModule, RoutingComponents } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { FormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router'
 
 //Importate
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -79,6 +80,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
     MatSnackBarModule,
     MatSidenavModule,
     Ng2SearchPipeModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

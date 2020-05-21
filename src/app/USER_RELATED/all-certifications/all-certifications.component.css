@@ -1,12 +1,12 @@
 .cards {
-  background-color: #3f3d3a;
+  background-color: #353e4d;
   height: 300px;
   width: 600px;
   margin-right: 5px;
 }
 
 .back {
-  background-color: rgb(18, 18, 18, 0.9);
+  background-color: #282d39;
 }
 
 h2 {
@@ -29,4 +29,15 @@ mat-card-header {
 .line {
   margin: 0px;
   text-align: left;
+}
+
+.all-certifications {
+  width: 1480px;
+  right: 50px;
+  background-color: #353e4d;
+  bottom: 20px;
+}
+
+::ng-deep .mat-menu-content {
+  background-color: #353e4d !important;
 }

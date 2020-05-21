@@ -13,7 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar'
   styleUrls: ['./dashboard-admin.component.css'],
 })
 export class DashboardAdminComponent implements OnInit {
-  panelOpenState = false
   approverejectcopy: ApproveRejectModel
   allCertifications: string[]
   public downloadLink: string
@@ -34,15 +33,12 @@ export class DashboardAdminComponent implements OnInit {
     this.getDownloadLink()
   }
 
-  openSnackBar() {
-    let snackBarRef = this.snackBar.open(
-      'Your download will begin in a moment',
-      'Dismiss',
-      {
-        duration: 3000,
-      }
-    )
+  openExcelSnackBar() {
+    this.snackBar.open('Your download will begin in a moment', 'Dismiss', {
+      duration: 3000,
+    })
   }
+
   getDownloadLink() {
     this.downloadLink =
       'https://cert-master.eu-gb.cf.appdomain.cloud/admin/requests/excel' +

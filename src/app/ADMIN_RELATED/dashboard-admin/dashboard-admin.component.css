@@ -41,14 +41,15 @@
 .approve-button {
   background-color: #44786a;
   height: 35px;
-  width: 80px;
+  width: 100px;
 }
 
 .reject-button {
   background-color: rgb(192, 57, 43, 0.8);
-  margin-left: 4px;
+  position: absolute;
   height: 35px;
-  width: 80px;
+  width: 100px;
+  left: 200px;
 }
 
 .edit-button {
@@ -60,12 +61,12 @@
 }
 
 .rejected {
-  background-color: red;
+  background-color: #ab3d36;
 }
 
 .pending {
-  background-color: #ffe5b4;
-  color: black;
+  background-color: #ffd199;
+  color: #282d39;
 }
 
 .container {
@@ -84,11 +85,7 @@
   border-color: white;
   background-color: #353e4d;
   margin-left: 10px;
-  width: 200px;
-}
-
-.delete-button {
-  margin-left: auto;
+  width: 130px;
 }
 
 .search-filtered {
@@ -137,4 +134,33 @@
 
 .cert-master-toolbar {
   margin-left: 12px;
+}
+
+.toolbar-color {
+  background-color: #282d39;
+}
+
+.delete-button {
+  color: #353e4d;
+  background-color: #c4c4c4;
+}
+
+.excel-button {
+  background-color: #353e4d;
+  border: 1px solid;
+  border-color: #c4c4c4;
+}
+
+::ng-deep .mat-menu-content {
+  background-color: #353e4d !important;
+}
+
+.toolbar-hr {
+  margin-top: -4px;
+  color: #353e4d;
+  background-color: #353e4d;
+}
+
+::ng-deep.mat-dialog-container {
+  background-color: #282d39 !important;
 }
