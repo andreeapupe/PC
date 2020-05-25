@@ -23,6 +23,7 @@ const routes: Routes = [
     path: 'all-certifications',
     component: AllCertificationsComponent,
   },
+  { path: '**', component: AllCertificationsComponent },
 ]
 
 @NgModule({

@@ -35,15 +35,8 @@ export class AddRequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestForm = this.formBuilder.group({
-      title: [
-        /*
-        { value: this.request.certificationTitle, disabled: this.edit }*/ '',
-        Validators.required,
-      ],
-      justification: [
-        /*{ value: '', disabled: this.edit }*/ '',
-        Validators.required,
-      ],
+      title: ['', Validators.required],
+      justification: ['', Validators.required],
     })
 
     if (this.edit) {

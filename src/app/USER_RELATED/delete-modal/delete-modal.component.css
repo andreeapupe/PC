@@ -1,8 +1,3 @@
-.confirm-button {
-  color: red;
-  background-color: #353e4d;
-}
-
 ::ng-deep.form-content {
   width: 500px;
 }
